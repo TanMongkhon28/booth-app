@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">เลือก Zone เพื่อดูบูธ</h2>
+  
+    <!-- แสดง Zone เป็นการ์ด -->
+    <div class="row">
+      <div *ngFor="let zone of zones" class="col-md-4 mb-3">
+        <div class="card text-center h-100" (click)="viewBooth(zone.id)" style="cursor: pointer;">
+          <div class="card-body">
+            <h5 class="card-title">{{ zone.zone_name }}</h5> <!-- แสดง zone_name -->
+            <p class="card-text">{{ zone.zone_description }}</p> <!-- แสดง zone_description -->
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- ข้อความแสดงข้อผิดพลาด -->
+    <div *ngIf="errorMessage" class="text-danger mt-3 text-center">
+      {{ errorMessage }}
+    </div>
+  </div>
+  

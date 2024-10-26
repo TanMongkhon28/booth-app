@@ -1,0 +1,50 @@
+.booth-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .booth-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .booth-table th, .booth-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .booth-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .success-message {
+    color: green;
+  }
+  

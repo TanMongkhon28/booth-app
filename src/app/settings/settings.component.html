@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    <h2>ตั้งค่าบัญชีผู้ใช้</h2>
+    <form [formGroup]="settingsForm" (ngSubmit)="saveSettings()">
+      <!-- คำนำหน้า -->
+      <div class="mb-3">
+        <label for="prefix" class="form-label">คำนำหน้า</label>
+        <select id="prefix" class="form-control" formControlName="prefix">
+          <option value="">เลือกคำนำหน้า</option>
+          <option value="นาย">นาย</option>
+          <option value="นาง">นาง</option>
+          <option value="นางสาว">นางสาว</option>
+        </select>
+      </div>
+  
+      <!-- ชื่อ -->
+      <div class="mb-3">
+        <label for="name" class="form-label">ชื่อ</label>
+        <input id="name" type="text" class="form-control" formControlName="name">
+      </div>
+  
+      <!-- นามสกุล -->
+      <div class="mb-3">
+        <label for="lastname" class="form-label">นามสกุล</label>
+        <input id="lastname" type="text" class="form-control" formControlName="lastname">
+      </div>
+  
+      <!-- เบอร์โทรศัพท์ -->
+      <div class="mb-3">
+        <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+        <input id="phone" type="text" class="form-control" formControlName="phone">
+      </div>
+  
+      <!-- อีเมล -->
+      <div class="mb-3">
+        <label for="email" class="form-label">อีเมล</label>
+        <input id="email" type="email" class="form-control" formControlName="email">
+      </div>
+  
+      <!-- รหัสผ่านใหม่ -->
+      <div class="mb-3">
+        <label for="password" class="form-label">รหัสผ่านใหม่</label>
+        <input id="password" type="password" class="form-control" formControlName="new_password">
+      </div>
+  
+      <!-- ยืนยันรหัสผ่าน -->
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">ยืนยันรหัสผ่าน</label>
+        <input id="confirmPassword" type="password" class="form-control" formControlName="confirm_password">
+      </div>
+  
+      <button type="submit" 
+        class="btn btn-primary" 
+        [disabled]="!settingsForm.valid">
+        บันทึกข้อมูล
+      </button>
+    </form>
+  </div>
+  

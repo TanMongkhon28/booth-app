@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <h3 class="text-center">การจองบูธของฉัน</h3>
+  
+    <!-- แสดงข้อความเมื่อเกิดข้อผิดพลาด -->
+    <div *ngIf="errorMessage" class="alert alert-danger text-center">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- แสดงข้อความเมื่อไม่มีการจอง -->
+    <div *ngIf="!errorMessage && bookings.length === 0" class="alert alert-info text-center">
+      ไม่พบข้อมูลการจอง
+    </div>
+  
+    <!-- แสดงรายการการจองเมื่อมีข้อมูล -->
+    <div *ngIf="bookings.length > 0" class="mt-4">
+      <div *ngFor="let booking of bookings" class="card mb-3" (click)="viewBoothDetails(booking.id ,booking.booking_id)" style="cursor: pointer;">
+        <div class="card-body">
+          <h5 class="card-title">บูธ: {{ booking.booth_name }}</h5>
+          <p class="card-text">สถานะการจอง: {{ booking.booking_status }}</p>
+          <p class="card-text">วันที่จอง: {{ booking.booking_date }}</p>
+          <p class="card-text">กำหนดชำระเงิน: {{ booking.payment_due_date }}</p>
+          <p class="card-text">รายละเอียด: {{ booking.details }}</p>
+          <p class="card-text">อีเวนต์: {{ booking.event_id }}</p>
+          <p class="card-text">Booking ID: {{ booking.booking_id }}</p> 
+        </div>
+      </div>
+    </div>
+  </div>
+  

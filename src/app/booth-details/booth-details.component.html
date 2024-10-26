@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h3 class="text-center">รายละเอียดบูธ: {{ booth?.booth_name }}</h3>
+  
+    <div *ngIf="errorMessage" class="alert alert-danger text-center">
+      {{ errorMessage }}
+    </div>
+  
+    <div *ngIf="booth" class="card mt-4">
+      <img [src]="booth.image_url" class="card-img-top" alt="Booth Image">
+      <div class="card-body">
+        <h5 class="card-title">ราคา: {{ booth.price }}</h5>
+        <p class="card-text">ขนาด: {{ booth.booth_size }} เมตร</p>
+        <p class="card-text">สถานะ: {{ booth.status }}</p>
+        <p class="card-text">รหัสการจอง: {{ bookingId }}</p>
+  
+        <!-- QR Code จำลอง -->
+        <div class="text-center mt-4">
+          <img src="https://via.placeholder.com/150?text=QR+Code" alt="QR Code">
+        </div>
+  
+        <!-- ฟอร์มอัปโหลดภาพ -->
+        <div class="mt-3">
+          <label for="paymentImage">อัปโหลดภาพการชำระเงิน:</label>
+          <input type="file" (change)="onFileSelected($event)" class="form-control">
+          <button class="btn btn-success mt-2" (click)="uploadPaymentImage()">อัปโหลด</button>
+          <p></p>
+          <button class="btn btn-success mt-2" (click)=" CancelPaymentImage()">ยกเลิก</button>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </div>
+  

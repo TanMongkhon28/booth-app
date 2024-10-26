@@ -1,0 +1,36 @@
+<div class="booth-container">
+    <h2>รายการบูธ</h2>
+  
+    <!-- ตรวจสอบว่ามีข้อมูลบูธ -->
+    <table *ngIf="booths.length > 0; else noData" class="booth-table">
+      <thead>
+        <tr>
+          <th>ชื่อบูธ</th>
+          <th>ขนาด</th>
+          <th>สถานะ</th>
+          <th>ราคา</th>
+          <th>โซน</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booth of booths">
+          <td>{{ booth.booth_name }}</td>
+          <td>{{ booth.booth_size }}</td>
+          <td>{{ booth.status }}</td>
+          <td>{{ booth.price }}</td>
+          <td>{{ booth.zone_id }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- ข้อความเมื่อไม่มีข้อมูลบูธ -->
+    <ng-template #noData>
+      <p>ไม่มีข้อมูลบูธ</p>
+    </ng-template>
+  
+    <!-- ข้อความแสดงข้อผิดพลาด -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
+  

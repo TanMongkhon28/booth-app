@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="card text-center p-4" style="background-color: #4caf50; color: white; border-radius: 10px;">
+    <h3>ยินดีต้อนรับเข้าสู่ระบบ</h3>
+    <h4>คุณ {{ userName }} {{ userLastName }}</h4>
+    <button (click)="logout()" class="btn btn-outline-light position-absolute top-0 end-0 m-3">
+      ออกจากระบบ
+    </button>
+    <div class="card mt-4 p-3" style="background-color: white; color: black; border-radius: 10px;">
+      <div class="mb-3">
+        <p>ดูรายละเอียดบูธ</p>
+        <button (click)="viewBooth()" class="btn btn-success">ดูบูธ</button>
+      </div>
+      <hr>
+      <div class="mb-3">
+        <p>ดูบูธที่คุณจองไว้</p>
+        <button (click)="viewMyBooths()" class="btn btn-success">บูธของฉัน</button>
+      </div>
+      <hr>
+      <div class="mb-3">
+        <p>ตั้งค่าบัญชีผู้ใช้</p>
+        <button (click)="goToSettings()" class="btn btn-warning">Setting</button>
+      </div>
+    </div>
+  </div>
+</div>

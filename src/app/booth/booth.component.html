@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">บูธใน Zone: {{ zoneId }}</h2>
+
+  <!-- ข้อความแสดงข้อผิดพลาด -->
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+
+  <!-- แสดงบูธในรูปแบบการ์ด -->
+  <div class="row">
+    <div *ngFor="let booth of booths" class="col-md-4 mb-3">
+      <div class="card h-100" (click)="selectBooth(booth)" style="cursor: pointer;">
+        <img *ngIf="booth.image_url" [src]="booth.image_url" class="card-img-top" alt="{{ booth.booth_name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ booth.booth_name }}</h5>
+          <p class="card-text">ขนาด: {{ booth.booth_size }}</p>
+          <p class="card-text">สถานะ: {{ booth.status }}</p>
+          <p class="card-text">ราคา: {{ booth.price | currency:'THB' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal สำหรับยืนยันการจอง -->
+  <div class="modal fade" id="confirmBookingModal" tabindex="-1" aria-labelledby="confirmBookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmBookingModalLabel">ยืนยันการจองบูธ</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>คุณต้องการจองบูธ {{ selectedBooth?.booth_name }} ใช่หรือไม่?</p>
+          <div class="mb-3">
+            <label for="detailsInput" class="form-label">กรอกข้อมูลรายละเอียด (ไม่บังคับ)</label>
+            <textarea 
+              id="detailsInput" 
+              class="form-control" 
+              [(ngModel)]="details" 
+              placeholder="ระบุข้อมูลเพิ่มเติมเกี่ยวกับการจอง">
+            </textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="confirmBooking()">ยืนยันการจอง</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
